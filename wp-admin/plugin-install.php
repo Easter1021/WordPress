@@ -128,10 +128,7 @@ if ( $tab !== 'upload' ) {
  */
 do_action( "install_plugins_$tab", $paged ); ?>
 </div>
-
-<?php 
-wp_print_request_filesystem_credentials_modal();
-
+<?php
 /**
  * WordPress Administration Template Footer.
  */

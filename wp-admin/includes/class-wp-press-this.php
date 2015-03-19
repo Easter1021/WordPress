@@ -804,11 +804,11 @@ class WP_Press_This {
 				<div class="ajaxtag hide-if-no-js">
 					<label class="screen-reader-text" for="new-tag-post_tag"><?php _e( 'Tags' ); ?></label>
 					<p>
-						<input type="text" id="new-tag-post_tag" name="newtag[post_tag]" class="newtag form-input-tip" size="16" autocomplete="off" value="" aria-describedby="new-tag-desc" />
+						<input type="text" id="new-tag-post_tag" name="newtag[post_tag]" class="newtag form-input-tip" size="16" autocomplete="off" value="" />
 						<button type="button" class="tagadd"><?php _e( 'Add' ); ?></button>
 					</p>
 				</div>
-				<p class="howto" id="new-tag-desc">
+				<p class="howto">
 					<?php echo $taxonomy->labels->separate_items_with_commas; ?>
 				</p>
 			<?php } ?>
@@ -970,11 +970,6 @@ class WP_Press_This {
 				$text = $data['_meta']['og:description'];
 			} else if ( ! empty( $data['_meta']['description'] ) ) {
 				$text = $data['_meta']['description'];
-			}
-
-			// If there is an ellipsis at the end, the description is very likely auto-generated. Better to ignore it.
-			if ( $text && substr( $text, -3 ) === '...' ) {
-				$text = '';
 			}
 		}
 
@@ -1155,10 +1150,8 @@ class WP_Press_This {
 <body class="wp-admin wp-core-ui <?php echo $admin_body_classes . ' ' . $admin_body_class; ?>">
 	<div id="adminbar" class="adminbar">
 		<h1 id="current-site" class="current-site">
-			<a class="current-site-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" target="_blank" rel="home">
-				<span class="dashicons dashicons-wordpress"></span>
-				<span class="current-site-name"><?php bloginfo( 'name' ); ?></span>
-			</a>
+			<span class="dashicons dashicons-wordpress"></span>
+			<span><?php bloginfo( 'name' ); ?></span>
 		</h1>
 		<button type="button" class="options-open button-subtle">
 			<span class="dashicons dashicons-tag"></span><span class="screen-reader-text"><?php _e( 'Show post options' ); ?></span>
